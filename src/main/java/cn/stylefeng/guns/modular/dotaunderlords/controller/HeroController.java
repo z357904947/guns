@@ -1,8 +1,10 @@
 package cn.stylefeng.guns.modular.dotaunderlords.controller;
 
+import cn.stylefeng.guns.core.shiro.ShiroKit;
 import cn.stylefeng.guns.modular.dotaunderlords.entity.HeroDO;
 import cn.stylefeng.guns.modular.dotaunderlords.service.HeroService;
 import cn.stylefeng.roses.core.base.controller.BaseController;
+import cn.stylefeng.roses.core.reqres.response.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,9 +42,13 @@ public class HeroController extends BaseController {
     public String deptAdd() {
         return PREFIX + "hero_add.html";
     }
-    @RequestMapping("/hero_add")
-    public String Add() {
-        return PREFIX + "hero_add.html";
+    @RequestMapping("/add")
+    public ResponseData Add(HeroDO heroDO) {
+
+        Long userId = ShiroKit.getUserNotNull().getId();
+        heroDO.setCreatUser(userId);
+        this.heroService.save(heroDO);
+        return ResponseData.success();
     }
     /**
      * 获取所有英雄列表
@@ -53,9 +59,9 @@ public class HeroController extends BaseController {
     public Object list(HeroDO hero){
 
         return this.heroService.findPageBySpec(hero);
-
-
     }
+
+
 
 
 }

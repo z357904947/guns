@@ -27,11 +27,14 @@ public class HeroService extends ServiceImpl<HeroMapper, HeroDO> {
 
 
     public LayuiPageInfo findPageBySpec(HeroDO heroDO){
-        Optional<HeroDO> optionalHeroDO = Optional.ofNullable(heroDO);
+
         Page pageContext = LayuiPageFactory.defaultPage();
         QueryWrapper<HeroDO> objectQueryWrapper = new QueryWrapper<>();
         if (ToolUtil.isNotEmpty(heroDO.getCnName())) {
-            objectQueryWrapper.and(i -> i.like("cn_name", heroDO.getCnName()));
+            objectQueryWrapper.or(i -> i.like("cn_name", heroDO.getCnName()));
+        }
+        if (ToolUtil.isNotEmpty(heroDO.getEnName())) {
+            objectQueryWrapper.or(i -> i.like("en_name", heroDO.getEnName()));
         }
         pageContext.setAsc("en_name");
 
