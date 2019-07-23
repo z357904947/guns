@@ -66,6 +66,7 @@ public class DeptController extends BaseController {
      * @author fengshuonan
      * @Date 2018/12/23 4:56 PM
      */
+
     @RequestMapping("")
     public String index() {
         return PREFIX + "dept.html";
@@ -77,6 +78,7 @@ public class DeptController extends BaseController {
      * @author fengshuonan
      * @Date 2018/12/23 4:56 PM
      */
+
     @RequestMapping("/dept_add")
     public String deptAdd() {
         return PREFIX + "dept_add.html";
@@ -127,15 +129,12 @@ public class DeptController extends BaseController {
     @ResponseBody
     public List<TreeviewNode> treeview() {
         List<TreeviewNode> treeviewNodes = this.deptService.treeviewNodes();
-
         //构建树
         DefaultTreeBuildFactory<TreeviewNode> factory = new DefaultTreeBuildFactory<>();
         factory.setRootParentId("0");
         List<TreeviewNode> results = factory.doTreeBuild(treeviewNodes);
-
         //把子节点为空的设为null
         DeptTreeWrapper.clearNull(results);
-
         return results;
     }
 

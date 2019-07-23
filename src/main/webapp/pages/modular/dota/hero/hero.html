@@ -12,18 +12,18 @@
                     <div class="layui-form toolbar">
                         <div class="layui-form-item">
                             <div class="layui-inline">
-                                <input id="name" class="layui-input" type="text" placeholder="部门名称"/>
+                                <input id="cnName" class="layui-input" type="text" placeholder="英雄名称"/>
                             </div>
                             <div class="layui-inline">
                                 <button id="btnSearch" class="layui-btn icon-btn"><i class="layui-icon">&#xe615;</i>搜索</button>
-                                @if(shiro.hasPermission("/dept/add")){
+                                @if(shiro.hasPermission("/hero/add")){
                                 <button id="btnAdd" class="layui-btn icon-btn"><i class="layui-icon">&#xe654;</i>添加</button>
                                 @}
                                 <button id="btnExp" class="layui-btn icon-btn"><i class="layui-icon">&#xe67d;</i>导出</button>
                             </div>
                         </div>
                     </div>
-                    <table class="layui-table" id="deptTable" lay-filter="deptTable"></table>
+                    <table class="layui-table" id="heroTable" lay-filter="heroTable"></table>
                 </div>
             </div>
         </div>

@@ -29,8 +29,10 @@ spring:
       max-file-size: 100MB
 
 mybatis-plus:
-  typeAliasesPackage: cn.stylefeng.guns.modular.system.model,cn.stylefeng.guns.modular.dotaunderlords.model
+  typeAliasesPackage: cn.stylefeng.guns.modular.system.model,cn.stylefeng.guns.modular.dotaunderlords.entity
   mapper-locations: classpath:cn/stylefeng/guns/modular/**/mapping/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
 log:
   path: guns-logs
