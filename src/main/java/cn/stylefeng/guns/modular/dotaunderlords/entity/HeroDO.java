@@ -39,7 +39,7 @@ public class HeroDO {
     /**
      * 梯队
      */
-    private String echelon;
+    private Integer echelon;
     /**
      * 雇佣费用&棋子价格
      */

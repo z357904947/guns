@@ -44,9 +44,12 @@ public class HeroController extends BaseController {
     }
     @RequestMapping("/add")
     public ResponseData Add(HeroDO heroDO) {
-
+        /**
+         * 设置创建用户
+         */
         Long userId = ShiroKit.getUserNotNull().getId();
         heroDO.setCreatUser(userId);
+        heroDO.setEmploymentCost(heroDO.getEchelon());
         this.heroService.save(heroDO);
         return ResponseData.success();
     }
