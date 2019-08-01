@@ -48,6 +48,20 @@ layui.use(['table','admin', 'ax'], function () {
         });
     };
     /**
+     * 弹出修改对话框
+     */
+    Hero.openEditDlg = function (data) {
+        admin.putTempData('formOk', false);
+        top.layui.admin.open({
+            type: 2,
+            title: '修改英雄',
+            content: Feng.ctxPath + '/hero/hero_edit?heroId=' + data.heroId,
+            end: function () {
+                admin.getTempData('formOk') && table.reload(Hero.tableId);
+            }
+        });
+    };
+    /**
      * 渲染表格
      */
         // 渲染表格
@@ -69,17 +83,18 @@ layui.use(['table','admin', 'ax'], function () {
         Hero.openAddDlg();
 
     });
-    // // 工具条点击事件
-    // table.on('tool(' + Hero.tableId + ')', function (obj) {
-    //     var data = obj.data;
-    //     var layEvent = obj.event;
-    //
-    //     if (layEvent === 'edit') {
-    //         Hero.openEditDlg(data);
-    //     } else if (layEvent === 'delete') {
-    //         Hero.onDeleteItem(data);
-    //     }
-    // });
+
+    // 工具条点击事件
+    table.on('tool(' + Hero.tableId + ')', function (obj) {
+        var data = obj.data;
+        var layEvent = obj.event;
+
+        if (layEvent === 'edit') {
+            Hero.openEditDlg(data);
+        } else if (layEvent === 'delete') {
+            Hero.onDeleteItem(data);
+        }
+    });
 
 
 });

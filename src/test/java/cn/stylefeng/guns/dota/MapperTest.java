@@ -1,4 +1,4 @@
-package cn.stylefeng.guns.base;
+package cn.stylefeng.guns.dota;
 
 import cn.stylefeng.guns.GunsApplication;
 import com.baomidou.mybatisplus.annotation.DbType;
@@ -33,7 +33,8 @@ public class MapperTest {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        gc.setOutputDir("D://xiangm/guns/src/main/java");//这里写你自己的java目录
+        gc.setOutputDir("F://work/IDEAwork/guns/src/main/java");//这里写你自己的java目录
+//        gc.setOutputDir("D://xiangm/guns/src/main/java");//这里写你自己的java目录
         gc.setFileOverride(true);//是否覆盖
         gc.setActiveRecord(true);
         gc.setEnableCache(false);// XML 二级缓存
@@ -55,7 +56,7 @@ public class MapperTest {
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("zhoupan888");
-        dsc.setUrl("jdbc:mysql://127.0.0.1:3307/guns?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT");
+        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/guns?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT");
         mpg.setDataSource(dsc);
 
         // 策略配置
@@ -70,7 +71,7 @@ public class MapperTest {
         pc.setParent(null);
         pc.setEntity("cn.stylefeng.guns.modular.dotaunderlords.entity");
         pc.setMapper("cn.stylefeng.guns.modular.dotaunderlords.mapper");
-        pc.setXml("mapper");
+//        pc.setXml("mapper");
         pc.setService("cn.stylefeng.guns.modular.dotaunderlords.service");       //本项目没用，生成之后删掉
         pc.setServiceImpl("cn.stylefeng.guns.modular.dotaunderlords.service.impl");   //本项目没用，生成之后删掉
 //        pc.setController("TTT");    //本项目没用，生成之后删掉

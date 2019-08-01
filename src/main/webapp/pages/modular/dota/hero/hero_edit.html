@@ -1,0 +1,48 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/dota/hero/hero_edit.js"]}){
+<form id="heroForm" lay-filter="heroForm" class="layui-form model-form">
+    <input name="heroId" type="hidden"/>
+    <div class="layui-form-item">
+        <label class="layui-form-label">英雄中文名称<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="cnName" placeholder="请输入英雄名称" type="text" class="layui-input" lay-verify="required" required/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">英雄英文名称<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="enName" name="enName" placeholder="请输入英文名称" type="text" class="layui-input" lay-verify="required" required autocomplete="off"/>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">头像地址<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="headImgUrl" name="headImgUrl" placeholder="请输入图片地址" type="text" class="layui-input" lay-verify="required" required autocomplete="off"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">梯队<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <select id="echelon" name="echelon">
+                <option value="1">第一梯队</option>
+                <option value="2">第二梯队</option>
+                <option value="3">第三梯队</option>
+                <option value="4">第四梯队</option>
+                <option value="5">第五梯队</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">其他简称</label>
+        <div class="layui-input-block">
+            <input name="alias" placeholder="请输入其他简称" type="text" class="layui-input"/>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="closeDialog">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+</form>
+@}

@@ -25,7 +25,7 @@ public class HeroDO {
      */
     private String cnName;
     /**
-     * 中文名
+     * 英文
      */
     private String enName;
     /**

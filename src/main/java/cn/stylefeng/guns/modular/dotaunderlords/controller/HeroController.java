@@ -42,6 +42,16 @@ public class HeroController extends BaseController {
     public String deptAdd() {
         return PREFIX + "hero_add.html";
     }
+
+
+    /**
+     * 跳转到英雄添加页
+     * @return
+     */
+    @RequestMapping("/hero_edit")
+    public String deptEdit() {
+        return PREFIX + "hero_edit.html";
+    }
     @RequestMapping("/add")
     public ResponseData Add(HeroDO heroDO) {
         /**
@@ -65,6 +75,27 @@ public class HeroController extends BaseController {
     }
 
 
+    /**
+     * 获取指定ID英雄信息
+     * @return
+     */
+    @RequestMapping("/getById")
+    @ResponseBody
+    public Object getById(String id){
 
+        return this.heroService.getById(id);
+    }
+
+    /**
+     * 更新
+     * @return
+     */
+    @RequestMapping("/edit")
+    @ResponseBody
+    public Object update(HeroDO heroDO){
+
+        heroDO.setEmploymentCost(heroDO.getEchelon());
+        return this.heroService.updateById(heroDO);
+    }
 
 }

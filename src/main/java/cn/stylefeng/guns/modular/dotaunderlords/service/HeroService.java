@@ -25,7 +25,11 @@ import java.util.Optional;
 @Service
 public class HeroService extends ServiceImpl<HeroMapper, HeroDO> {
 
-
+    /**
+     * 后台管理-英雄列表的分页方法
+     * @param heroDO
+     * @return
+     */
     public LayuiPageInfo findPageBySpec(HeroDO heroDO){
 
         Page pageContext = LayuiPageFactory.defaultPage();
@@ -41,4 +45,7 @@ public class HeroService extends ServiceImpl<HeroMapper, HeroDO> {
         IPage page = this.page(pageContext, objectQueryWrapper);
         return LayuiPageFactory.createPageInfo(page);
     }
+
+
+
 }
